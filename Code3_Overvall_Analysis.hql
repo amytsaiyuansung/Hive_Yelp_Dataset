@@ -3,7 +3,6 @@ SELECT name, count(business_id)
 FROM business 
 WHERE name IN ('Burger King', 'Chick-fil-A', 'Jack in the Box', 'Shake Shack', 'In-N-Out Burger', 'Five Guys', 'McDonald\'s', \
 'Arby\'s', 'Wendy\'s', 'Steak \’n Shake')
-
 GROUP BY name; 
 
 ## Avg rating score of each brand
