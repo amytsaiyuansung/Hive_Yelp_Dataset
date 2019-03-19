@@ -11,8 +11,8 @@ $ hdfs dfs -ls /user/data
 hive
 set hive.cli.print.header=true;
 
-# create table and load data into it
-## table users
+# create table and load data into Hive
+## table 'users'
 CREATE EXTERNAL TABLE users 
 (average_stars FLOAT,compliment_cool INT,compliment_cute INT,compliment_funny INT,compliment_hot INT,compliment_list INT,compliment_more INT,compliment_note INT,compliment_photos INT,compliment_plain INT,compliment_profile INT,compliment_writer INT,cool INT ,  elite STRING,fans INT ,funny INT , review_count INT, useful INT ,user_id STRING, yelping_since STRING)
 row format delimited 
@@ -22,7 +22,7 @@ row format delimited
 
 LOAD DATA INPATH '/user/data/user.txt' INTO TABLE users 
 
-## table tip
+## table 'tip'
 CREATE EXTERNAL TABLE tip
 (business_id STRING,compliment_count INT,tip_date STRING,text STRING, user_id STRING) 
 row format delimited  
@@ -32,7 +32,7 @@ row format delimited
 
 LOAD DATA INPATH '/user/data/tip.txt' INTO TABLE tip
 
-## table review
+## table 'review'
 CREATE EXTERNAL TABLE review (business_id STRING,cool INT,review_date STRING,funny INT,review_id STRING,stars INT,text STRING,useful INT,user_id STRING)
 row format delimited 
   fields terminated by '|' 
@@ -41,7 +41,7 @@ row format delimited
 
 LOAD DATA INPATH '/user/data/review.txt' INTO TABLE review
 
-## table business
+## table 'business'
 CREATE EXTERNAL TABLE business 
 (attributes STRING,business_id STRING,categories STRING,city STRING,is_open INT,name STRING,review_count INT,stars INT,state STRING)
 row format delimited 
@@ -51,7 +51,7 @@ row format delimited
 
 LOAD DATA INPATH '/user/data/business.txt' INTO TABLE business
 
-## table checkin
+## table 'checkin'
 CREATE EXTERNAL TABLE checkin(business_id STRING,checkindate STRING)
 row format delimited 
   fields terminated by '|' 
@@ -59,9 +59,3 @@ row format delimited
   tblproperties ("skip.header.line.count"="1");
 
 LOAD DATA INPATH '/user/data/checkin.txt' INTO TABLE checkin 
-
-#Then, we could start querying based on questions
-
-
-
-
